@@ -1,0 +1,83 @@
+CREATE DATABASE db_integrador;
+
+USE db_integrador;
+
+CREATE TABLE integrante (
+id_integra INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+nome VARCHAR (30) NOT NULL,
+sobrenome VARCHAR (50) NOT NULL,
+funcao VARCHAR (30) NOT NULL, 
+altura FLOAT NOT NULL,
+massa FLOAT NOT NULL
+);
+
+CREATE TABLE bloco (
+id_bloco INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+origem_traj VARCHAR (20) NOT NULL,
+destino_traj VARCHAR (20) NOT NULL,
+data_coleta DATE NOT NULL,
+hora_coleta TIME NOT NULL,
+D1 FLOAT NOT NULL,
+D2 FLOAT NOT NULL,
+D3 FLOAT NOT NULL,
+T1 TIME NOT NULL,
+T2 TIME NOT NULL,
+G1 FLOAT NOT NULL,
+G2 FLOAT NOT NULL,
+iluminacao ENUM ('S', 'N', 'P') NOT NULL,
+fluxo_pessoa ENUM ('S', 'N', 'P') NOT NULL,
+sombra ENUM ('S', 'N', 'P') NOT NULL,
+degrau ENUM ('S', 'N', 'P') NOT NULL,
+rampa ENUM ('S', 'N', 'P') NOT NULL,
+calcada ENUM ('S', 'N', 'P') NOT NULL,
+placa ENUM ('S', 'N', 'P') NOT NULL,
+pavimento ENUM ('S', 'N', 'P') NOT NULL,
+bebedouro ENUM ('S', 'N', 'P') NOT NULL,
+banheiro ENUM ('S', 'N', 'P') NOT NULL,
+banheiro_pcd ENUM ('S', 'N') NOT NULL,
+observacoes VARCHAR (1000) 
+);
+
+INSERT INTO integrante (nome, sobrenome, funcao, altura, massa) VALUES ('Rayssa', 'Ribeiro Miranda', 'Orientadora', '1.72', '75');
+INSERT INTO integrante (nome, sobrenome, funcao, altura, massa) VALUES ('João Marcelo', 'Alves Bessa', 'Coletor de Dados', '1.70', '80');
+INSERT INTO integrante (nome, sobrenome, funcao, altura, massa) VALUES ('Ryan Vitor', 'Pires da Cruz', 'Fotógrafo', '1.75', '70');
+INSERT INTO integrante (nome, sobrenome, funcao, altura, massa) VALUES ('Giovana', 'Fonseca', 'Coletora de Dados', '1.57', '54');
+
+SELECT * FROM integrante;
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Refeitório', '2022-05-02', '10:45:00', 0.09, 0.24, 0.28, '00:01:40', '00:04:00', 0.0784, 0.0735, 'S', 'S', 'S', 'S', 'S', 'S', 'N', 'P', 'S', 'S', 'S', ' ');
+
+SELECT * FROM bloco;
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Quadra Aberta', '2022-05-02', '16:12:00', 0.15, 0.32, 0.20, '00:02:41', '00:04:02', 0.075, 0.096, 'S', 'P', 'S', 'P', 'S', 'S', 'P', 'S', 'P', 'P', 'N', ' ');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Residência Masculina', '2022-05-05', '15:40:00', 0.15, 0.22, 0.10, '00:01:57', '00:03:43', 0.116, 0.078, 'N', 'P', 'P', 'P', 'S', 'S', 'N', 'N', 'N', 'N', 'N ', 'Foi observado durante o trajeto, a presença de descidas muito íngrimes e buracos no caminho');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Mirante', '2022-05-02', '15:45:00', 0.09, 0.14, 0.28, '00:02:00', '00:02:38', 0.0515, 0.0711, 'P', 'S', 'S', 'S', 'S', 'S', 'P', 'N', 'N', 'N', 'N', 'Na chegada do mirante há uma rampa muito deslizante');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Banheiro da Cantina', '2022-05-05', '15:40:00', 0.05, 0.05, 0.02, '00:01:00', '00:01:00', 0.0610, 0.0610, 'S', 'S', 'S', 'N', 'P', 'N', 'N', 'N', 'N', 'S', 'S', ' ');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Biblioteca', '2022-05-02', '12:34:00', 0.25, 0.27, 0.26, '00:03:32', '00:04:00', 0.0911, 0.0820, 'P', 'P', 'P', 'P', 'S', 'S', 'S', 'P', 'P', 'P', 'S', 'Há pouca iluminação no trajeto');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Bloco A', '2022-05-05', '16:00:00', 0.09, 0.28, 0.08, '00:01:24', '00:03:45', 0.0880, 0.0990, 'S', 'S', 'S', 'N', 'S', 'N', 'N', 'P', 'N', 'N', 'N', ' ');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Mecanização', '2022-05-02', '16:34:00', 0.24, 0.25, 0.27, '00:03:31', '00:03:44', 0.0880, 0.0890, 'P', 'P', 'P', 'P', 'S', 'S', 'S', 'S', 'S', 'P', 'N', ' ');
+
+
+INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
+VALUES ( 'Bloco D', 'Pivô Central', '2022-05-02', '13:30:00', 1.70, 1.73, 1.36, '00:25:00', '00:28:00', 0.0830, 0.0340, 'N', 'P', 'P', 'N', 'N', 'S', 'S', 'N', 'P', 'P', 'N', 'No trajeto tem grandes subidas e no asfalto possui buracos que dificultam a passagem');
