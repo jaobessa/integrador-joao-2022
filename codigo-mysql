@@ -13,8 +13,8 @@ massa FLOAT NOT NULL
 
 CREATE TABLE bloco (
 id_bloco INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-origem_traj VARCHAR (20) NOT NULL,
-destino_traj VARCHAR (20) NOT NULL,
+origem_traj VARCHAR (50) NOT NULL,
+destino_traj VARCHAR (50) NOT NULL,
 data_coleta DATE NOT NULL,
 hora_coleta TIME NOT NULL,
 D1 FLOAT NOT NULL,
