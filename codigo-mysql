@@ -50,7 +50,6 @@ VALUES ( 'Bloco D', 'Refeitório', '2022-05-02', '10:45:00', 0.09, 0.24, 0.28, '
 
 SELECT * FROM bloco;
 
-
 INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
 VALUES ( 'Bloco D', 'Quadra Aberta', '2022-05-02', '16:12:00', 0.15, 0.32, 0.20, '00:02:41', '00:04:02', 0.075, 0.096, 'S', 'P', 'S', 'P', 'S', 'S', 'P', 'S', 'P', 'P', 'N', ' ');
 
@@ -81,3 +80,15 @@ VALUES ( 'Bloco D', 'Mecanização', '2022-05-02', '16:34:00', 0.24, 0.25, 0.27,
 
 INSERT INTO bloco (origem_traj, destino_traj, data_coleta, hora_coleta, D1, D2, D3, T1, T2, G1, G2, iluminacao, fluxo_pessoa, sombra, degrau, rampa, calcada, placa, pavimento, bebedouro, banheiro, banheiro_pcd, observacoes) 
 VALUES ( 'Bloco D', 'Pivô Central', '2022-05-02', '13:30:00', 1.70, 1.73, 1.36, '00:25:00', '00:28:00', 0.0830, 0.0340, 'N', 'P', 'P', 'N', 'N', 'S', 'S', 'N', 'P', 'P', 'N', 'No trajeto tem grandes subidas e no asfalto possui buracos que dificultam a passagem');
+
+SELECT rampa, COUNT(id_bloco) AS TotalRampas
+FROM bloco
+WHERE rampa='S';
+
+SELECT iluminacao, COUNT(id_bloco) AS TotalIluminacao
+FROM bloco
+WHERE iluminacao='S';
+
+SELECT placa, COUNT(id_bloco) AS TotalPlacas
+FROM bloco
+WHERE placa='S';
